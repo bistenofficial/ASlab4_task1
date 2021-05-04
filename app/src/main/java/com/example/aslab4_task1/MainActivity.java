@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         etName = findViewById(R.id.editTextTextPersonName2);
         etEmail = findViewById(R.id.editTextTextPersonName3);
         dbHelper = new DBHelper(this);
+        etResult = findViewById(R.id.editTextTextPersonName);
     }
 
     public void onClick(View v) {
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     int emailColIndex = c.getColumnIndex("email");
                     do {
                         Log.d(LOG_TAG, "ID = " + c.getInt(idColIndex) + " name =" + c.getString(nameColIndex) + " email = " + c.getString(emailColIndex));
+                        etResult.setText(etResult.getText().toString()+"ID = " + c.getInt(idColIndex) + " name =" + c.getString(nameColIndex) + " email = " + c.getString(emailColIndex));
                     } while (c.moveToNext());
 
                 } else
